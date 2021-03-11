@@ -1,5 +1,7 @@
 package pages;
 
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -90,4 +92,32 @@ public class EventsPage  {
 
 
     }
+
+    //for API testing I will add a few lines code about my approach
+    public void getEvents(){
+
+        String endPoint="https://www.burning-glass.com/";
+
+        //to be able to get evets options I need to send get request to endpoint
+        //If I need authorization, or any request specification I need to provide in request specification
+
+
+        Response response= RestAssured.given()
+                /*
+                I can ad any srequest specification in this part like queryParam(), pathParam,
+                header() or headers(), body()
+                 */
+
+                .get(endPoint).prettyPeek();
+
+                /*
+                I can do asertion in this part by using response object
+                like status code(), content type(),  ant part of body
+
+                or I can get any part of body as java object by using jsonPath
+                like
+                String name = response.jsonPath().getString("the pathway of name");
+                 */
+    }
+
 }
