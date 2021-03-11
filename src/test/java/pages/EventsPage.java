@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.Waits;
 
 public class EventsPage  {
 
@@ -30,11 +31,11 @@ public class EventsPage  {
 
     public void waitFor(int seconds){
         try {
-            Thread.sleep(seconds);//We can habndle thread sleep in 2 ways
+            Thread.sleep(seconds);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        //We can habndle thread sleep in 2 ways
         //1 is try catch block
         // 2 is throws Interrrupted exceptions
 
@@ -42,7 +43,7 @@ public class EventsPage  {
     }
 
     @FindBy(xpath = "//span[text()=\"Events\"]")
-    public WebElement evetsTab;
+    public WebElement eventsTab;
 
     @FindBy(xpath = "//span[text()=\"Interviews\"]")
     public WebElement interviewTab;
@@ -65,10 +66,13 @@ public class EventsPage  {
     }
 
     public void clickEventsTab(){
-       waitforVisibility(evetsTab,5);
+       waitforVisibility(eventsTab,5);
         Actions action = new Actions(driver);
-        action.moveToElement(evetsTab).build().perform();
+        action.moveToElement(eventsTab).build().perform();
        waitFor(2);
+       //I have also created separate class to be able to call thread.sleep and explicit wait
+        //Waits.waitFor(2);   -->  This is certain wait
+        //Waits.waitForVisibility(eventsTab,10); --> This is Explicit wait
 
     }
 
@@ -118,6 +122,7 @@ public class EventsPage  {
                 like
                 String name = response.jsonPath().getString("the pathway of name");
                  */
+
     }
 
 }

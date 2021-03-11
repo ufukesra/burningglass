@@ -7,7 +7,7 @@ Installation guide: This is a maven project. so It's assumed that the host runni
 Below are the dependencies are being used for this project : Selenium, Cucumber, Junit, RestAssured, Github Bonigarcia(WebDriverManager)
 
 
-Web Testing:
+                        Web Testing:
 Comfiguration.properties: This is the file that we can store and manage our data.
 
 Configuration Reader class: this class is read data from Config file.
@@ -28,10 +28,20 @@ created an Events class object to be able to call methods from class.
 
 EventsPage class: I have created my methods such as Thread sleep ar explicit wait and scenario step in this class.
 
+I have also created Wait class to be able call certain wait or explicit wait  which is in the utillities package.
+        
+                         API Testing
+I have added API testing approach to EventsPage class that I have explained how to send request with
+ request Specifications and what I can assert in response body and how can I do that.
 
-I can also create Thread sleep and Explicit wait class and make these methods public static keyword then I can use these methods any 
-of the project by calling class name.
 
-After I push this framework in the github repository then I can run it with Jenkins by using AWS EC2 instance or Azure cloud function.
-
+                       Jenkins
+After I push this framework in to the github repository then I can run it with Jenkins by using AWS EC2 instance or Azure cloud function.
+-In Jenkins I first select source code Management tool whic mine is Git
+-put the git hub url to the repositery url
+- select branch is main
+-Built triggers:  this part depends on the test for example if I want to run Smoke test I trigger it everday 
+  periodically, or if I want to run regressing test I can trigger it every two weeks or trhee weeks and after every release
+-I can also create test report and result such as defautl HTMl report or Cucumber report
+-I also put team members email addresses who Jenkins sends test results and reports
 
