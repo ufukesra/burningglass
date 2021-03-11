@@ -1,6 +1,6 @@
-Feature: Test Google landing page
+Feature: Events Interview Page
 
-  Scenario: As a candidta I shold be able to read burningglass interview process
+  Scenario: As a candidate I should be able to read burningglass interview process
     Given Navigate to landing page
     When click the events
     And click interviews
